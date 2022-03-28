@@ -1,0 +1,18 @@
+{% extends "inicio.html" %}
+
+{% block titulo %} 
+Departamento
+{% endblock %}
+{% load static %}
+{% block css %} 
+<link rel="stylesheet" href="{% static 'css/form.css' %}"/>
+{% endblock %}
+
+{% block contenido %}
+    <form method="POST" class="form">
+      <h2 class="titulo-form">Formulario de Departamentos</h2>
+      {% csrf_token %}
+      {{DepartamentoForm.as_p}} 
+      <button id="enviar" type="submit" name="enviar" class="boton">{{accion}}</button>
+    </form>
+{% endblock %}

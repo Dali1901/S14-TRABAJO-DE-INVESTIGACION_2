@@ -1,0 +1,44 @@
+{% extends "inicio.html" %}
+
+{% block titulo %} 
+Departamento
+{% endblock %}
+{% load static %}
+{% block css %} 
+<link rel="stylesheet" href="{% static 'css/form.css' %}"/>
+{% endblock %}
+
+{% block contenido %}
+    <form class="form">
+      <h2 class="titulo-form">Formulario de Departamentos</h2>
+      <div class="contenedor">
+        <label for="nombre">Descripción del departamento:</label><br>
+        <br>
+        <input type="text" name="Descripcion" placeholder="Descripción" class="input-largo" required>
+        <div class="checar">
+          <label>Activo<input type="checkbox" id="activo" value="activo" checked />
+          </label>
+        </div>  
+        <button id="enviar" type="submit" name="enviar" class="boton">ENVIAR</button>
+      </div>
+    </form>
+    <div class="consulta none table-responsive" id="consulta">
+      <h3>Listado de Cargos</h3>
+    <table class="consulta-est" id="consulta-est" border="2">
+      <thead>
+          <th>#</th>
+          <th>Descripcion</th>
+          <th>Estado</th> 
+          <th colspan="2">Acciones</th>
+        </thead>
+        <tbody class="detalle-est" id="detalle-est">
+          <td>1</td>
+          <td>Sistemas</td>
+          <td>Activo</td>
+          <td><button>✍</button></td>
+          <td><button>🚮</button></td>
+      </tbody>
+    </table>
+    </div>
+{% endblock %}
+

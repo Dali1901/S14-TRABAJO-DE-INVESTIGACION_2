@@ -1,0 +1,61 @@
+{% extends "inicio.html" %}
+
+{% block titulo %} 
+Empleados
+{% endblock %}
+{% load static %}
+{% load static %}
+{% block css %} 
+<link rel="stylesheet" href="{% static 'css/form.css' %}"/>
+{% endblock %}
+
+{% block contenido %}
+<!-- <form method="POST" class="form">
+      <h2 class="titulo-form">Formulario de Empleados</h2>
+      {% csrf_token %}
+      {{EmpleadoForm.as_p}}
+      <button id="enviar" type="submit" name="enviar" class="boton">{{accion}}</button>
+    </form> -->
+    <br>
+    <a class="enlace" href="{% url 'insertarEmpleado' %}">Añadir Empleado</a>
+    <div class="consulta none table-responsive" id="consulta">
+      <h3>Listado de Cargos</h3>
+    <table class="consulta-est" id="consulta-est" border="2">
+      <thead>
+          <th>#</th>
+          <th>Nombre</th>
+          <th>Cédula</th>
+          <th>Sueldo</th>
+          <th>Cargo</th>
+          <th>Departamento</th>
+          <th>Estado</th> 
+          <th colspan="2">Acciones</th>
+        </thead>
+        <tbody class="detalle-est" id="detalle-est">
+          {% for empleado in empleados %}
+          <tr>
+            <td>{{empleado.id}}</td>
+            <td>{{empleado.nombre}}</td>
+            <td>{{empleado.cedula}}</td>
+            <td>{{empleado.sueldo}}</td>
+            <td>{{empleado.cargo}}</td>
+            <td>{{empleado.departamento}}</td>
+            <td>
+              {% if empleado.estado %}
+              Activo
+              {% else %}
+              Inactivo
+              {% endif %}
+            </td>
+            <td><a href="{% url 'editarEmpleado' empleado.id %}">✍</a></td>
+            <td><a href="{% url 'eliminarEmpleado' empleado.id %}">🚮</a></td>
+          </tr>
+          {% endfor %}
+      </tbody>
+    </table>
+  <br>
+<img class="gif" src="{% static '/img/giffinal.gif'%}"> 
+<p>© Copyright ® Todos los derechos reservados 2022</p>
+<p>INGENIERA DE SOFTWARE - 3ER SEMESTRE - ESTRUCTURA DE DATOS</p>
+</div>
+{% endblock %}

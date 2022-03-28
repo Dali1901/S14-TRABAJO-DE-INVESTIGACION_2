@@ -1,0 +1,53 @@
+{% extends "inicio.html" %}
+
+{% block titulo %} 
+Departamento
+{% endblock %}
+{% load static %}
+{% block css %} 
+<link rel="stylesheet" href="{% static 'css/form.css' %}"/>
+{% endblock %}
+
+{% block contenido %}
+    <!-- <form method="POST" class="form">
+      <h2 class="titulo-form">Formulario de Departamentos</h2>
+      {% csrf_token %}
+      {{DepartamentoForm.as_p}} 
+      <button id="enviar" type="submit" name="enviar" class="boton">{{accion}}</button>
+    </form> -->
+    <br>
+    <a class="enlace" href="{% url 'insertarDepartamento' %}">Añadir Departamento</a>
+    <div class="consulta none table-responsive" id="consulta">
+      <h3>Listado de Departamentos</h3>
+    <table class="consulta-est" id="consulta-est" border="2">
+      <thead>
+          <th>#</th>
+          <th>Descripcion</th>
+          <th>Estado</th> 
+          <th colspan="2">Acciones</th>
+      </thead>
+      <tbody class="detalle-est" id="detalle-est">
+        {% for departamento in departamentos %}
+        <tr>
+          <td>{{departamento.id}}</td>
+          <td>{{departamento.descripcion}}</td>
+          <td>
+            {% if departamento.estado %}
+            Activo
+            {% else %}
+            Inactivo
+            {% endif %}
+          </td>
+          <td><a href="{% url 'editarDepartamento' departamento.id %}">✍</a></td>
+          <td><a href="{% url 'eliminarDepartamento' departamento.id %}">🚮</a></td>
+        </tr>
+        {% endfor %}
+      </tbody>
+</table>
+<br>
+<img class="gif" src="{% static '/img/giffinal.gif'%}"> 
+<p>© Copyright ® Todos los derechos reservados 2022</p>
+<p>INGENIERA DE SOFTWARE - 3ER SEMESTRE - ESTRUCTURA DE DATOS</p>
+</div>
+{% endblock %}
+

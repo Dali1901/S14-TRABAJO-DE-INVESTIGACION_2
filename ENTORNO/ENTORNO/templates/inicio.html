@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+  
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'css/styles.css'%}"/>
+  <link rel="shortcut icon" type="image/x-icon" href="{% static '/img/800px-UNEMI-logo.ico'%}">
+  {% block css %} {% endblock %}
+  <title>{% block titulo %} Nómina de Pagos {% endblock %}</title>
+</head>
+  <body>
+    <header>  
+      <nav>
+        <ul class="fullnav">
+          <li><a href="{% url 'inicio' %}">Inicio</a></li>
+          <li><a href="{% url 'cargo' %}">Cargos</a></li>
+          <li><a href="{% url 'departamento' %}">Departamentos</a></li>
+          <li><a href="{% url 'empleado' %}">Empleados</a></li>  
+        </ul>
+      </nav>
+    </header>
+    
+    
+
+    {% block contenido %}
+    <div class="prin">
+      <img src="{% static '/img/cola5.gif'%}"> 
+    </div>
+    <div>
+      <p>© Copyright ® Todos los derechos reservados 2022</p>
+      <p>INGENIERA DE SOFTWARE - 3ER SEMESTRE - ESTRUCTURA DE DATOS</p>
+    </div>
+    
+    {% endblock %}
+    <link href="https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz" rel="stylesheet" type="text/css"/>
+  </body>
+</html>
+

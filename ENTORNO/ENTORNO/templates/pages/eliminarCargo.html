@@ -1,0 +1,23 @@
+{% extends "inicio.html" %}
+{% block titulo %}
+  Eliminar Cargo
+{% endblock %}
+{% load static %}
+{% block css%}
+  <link rel="stylesheet" href="{% static 'css/form.css' %}"/>
+{% endblock %}
+{% block contenido %}
+  <section class="form">
+      <div class="titulo-form">
+          <h1>Eliminación de Datos</h1>
+      </div>
+      <form method="POST" id="form-cargo" class="contenedor">
+          {% csrf_token %}
+          <h2>¿Está seguro en eliminar el cargo => 
+              <span style="color:red;"> {{cargo.id}} - <br><br>{{cargo.descripcion}} </span> ?
+          </h2>
+          <button class="boton" style="background: red;border-radius: 5px;padding: 5px;" type="submit">Eliminar</button>
+          <a style="display: block;background: green;border-radius: 5px;" href="{% url 'cargo' %}">Cancelar</a>
+      </form>
+  </section>
+{% endblock %}

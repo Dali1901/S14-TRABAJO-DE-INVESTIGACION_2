@@ -1,0 +1,69 @@
+{% extends "inicio.html" %}
+
+{% block titulo %} 
+Empleados
+{% endblock %}
+{% load static %}
+{% load static %}
+{% block css %} 
+<link rel="stylesheet" href="{% static 'css/form.css' %}"/>
+{% endblock %}
+
+{% block contenido %}
+    <form class="form">
+      <h2 class="titulo-form">Formulario de Empleados</h2>
+      <div class="contenedor">
+        <label for="nombre">Nombre:</label><br>
+        <input type="text" name="Nombre" placeholder="Nombre" class="input-largo" required>
+        <br><label for="nombre">Cédula:</label><br>
+        <input type="text" name="Cedula" placeholder="Cédula" class="input-largo" required>
+        <br><label for="nombre">Sueldo:</label><br>
+        <input type="text" name="Sueldo" placeholder="Sueldo(USD)" class="input-largo" required>
+
+        <br><label for="nombre">Cargo:</label><br>
+        <select class="boton2">
+          <option selected>Cargo</option>
+          <option value="value1">Cargo 1</option>
+          <option value="value2">Cargo 2</option>
+        </select> <br>
+        <br><label for="nombre">Departamento:</label><br>
+        <select class="boton2">
+          <option selected>Departamento</option>
+          <option value="value1">Cargo 1</option>
+          <option value="value2">Cargo 2</option>
+        </select> <br>
+        
+        <div class="checar">
+          <label>Activo<input type="checkbox" id="activo" value="activo" checked />
+          </label>
+        </div>  
+        <button id="enviar" type="submit" name="enviar" class="boton">ENVIAR</button>
+      </div>
+    </form>
+    <div class="consulta none table-responsive" id="consulta">
+      <h3>Listado de Cargos</h3>
+    <table class="consulta-est" id="consulta-est" border="2">
+      <thead>
+          <th>#</th>
+          <th>Nombre</th>
+          <th>Cédula</th>
+          <th>Sueldo</th>
+          <th>Cargo</th>
+          <th>Departamento</th>
+          <th>Estado</th> 
+          <th colspan="2">Acciones</th>
+        </thead>
+        <tbody class="detalle-est" id="detalle-est">
+          <td>1</td>
+          <td>Luis</td>
+          <td>0803652145</td>
+          <td>500</td>
+          <td>Adiminitrador</td>
+          <td>Sistemas</td>
+          <td>Activo</td>
+          <td><button>✍</button></td>
+          <td><button>🚮</button></td>
+      </tbody>
+    </table>
+    </div>
+{% endblock %}
